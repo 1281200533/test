@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../../../vue.js"></script>
+</head>
+
+<body>
+  <div id ="app"> 
+    <!-- <cnp @select="select" ref="aaa">
+      <div>我要显示</div>
+    </cnp>
+    <h3 v-for="(item,index) in contents" v-show="idx==index">{{item}}</h3> -->
+    <cnp>
+      <div slot="center">中间被替换</div>
+    </cnp>
+  </div>
+
+  <!-- <template id="cnp">
+    <div> 
+      <button v-for="(item,index) in titles"          
+          @click="itemClick(index)"  
+      >{{item}}</button>          
+      <slot>
+        <div>我是插槽</div>
+      </slot>
+    </div>
+  </template> -->
+  <template id="cnp">
+    <div> 
+      <slot name="left"><div>我是左边</div></slot>
+      <slot name="center">我是中间</slot>
+      <slot name="right">我是右边</slot>
+    </div>
+  </template>
+  <script>
+
+    const cnp = Vue.extend({
+      template:'#cnp',
+      props:['age'],
+      data(){
+        return {
+          titles: ['新品', '销量', '特卖']
+        }
+      },
+      methods:{
+        itemClick(index){
+          this.$emit("select",index)
+        }
+      },
+      mounted(){
+        console.log(this.$parent.contents);
+      }
+    })
+
+   //创建Vue实例,得到 ViewModel
+   var vm = new Vue({
+    el: '#app',
+    data: {
+      age:18,
+      contents: ['新品内容', '销量内容', '特卖内容'],
+      idx:0
+    },
+    methods: {
+      select(index){
+        this.idx =index
+      }
+    },
+    components:{
+      cnp
+      
+    },
+    mounted(){
+      // console.log(this.$refs.aaa.titles);
+    }
+   });
+  </script>
+</body>
+
+</html>

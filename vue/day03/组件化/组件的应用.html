@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../../vue.js"></script>
+</head>
+
+<body>
+  <div id ="app">
+    <cnp1></cnp1>
+  </div>
+    
+  <template id="cnp1">
+    <div>
+      <h2>cpn2标题</h2>
+      <p>我是cpn2的内容{{number}}</p>
+    </div>
+  </template>
+
+  <!-- <template id="cnp2">
+    <div>
+      hai  HAI
+    </div>
+  </template> -->
+
+
+  <script>
+   //创建Vue实例,得到 ViewModel
+
+    // const cnp1 ={ template:`<div>hai</div>`}
+     
+    ;
+    // const cnp2 =  {
+    //   template:`<div>h a i
+    //     <cnp1></cnp1>
+    //     </div>`,
+    //   components:{
+    //     cnp1
+    //   }
+    // };
+
+    //  Vue.component('cnp',cnp);
+
+
+   var vm = new Vue({
+    el: '#app',
+    data: {},
+    methods: {},
+    components:{
+      cnp1:{
+        template:'#cnp1',
+        data(){
+          return {
+            number:111
+          }
+        }
+      }
+    }
+   });
+  </script>
+</body>
+
+</html>

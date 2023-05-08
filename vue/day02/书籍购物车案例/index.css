@@ -1,0 +1,18 @@
+table {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+tr {
+}
+
+th , td{
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+}
+tr th {
+
+}
+
+tr td {
+}

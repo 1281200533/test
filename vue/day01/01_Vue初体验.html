@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+    <!-- {{message}} -->
+
+    <ul>
+      <li 
+      v-for="(item,index) in lists" 
+      :key="index" 
+      @click=idx=index
+      :class="{active:idx==index}"
+      >{{item}}</li>
+    </ul>
+
+    <!-- <div>{{counter}}</div>
+    <div v-once>{{counter}}</div>
+    <div v-html="baidu"></div>
+    <button @click="add">+</button>
+    <button @click="subtract">-</button> -->
+
+    <!-- <img :src="imgUrl" alt=""> -->
+    <!-- <div :class="{active:isActives}">666</div> -->
+
+    <div>{{priceTotal}}</div>
+
+  </div>
+
+
+  
+</body>
+</html>
+<script>
+  console.log(Vue);
+  const app = new Vue({
+    el:'#app',
+    data(){
+      return {
+        idx:0,
+        message:"消息",
+        lists:['张三','李四','王五'],
+        counter:0,
+        baidu:'<a href="www.baidu.com">百度一下</a>',
+        imgUrl:'https://www.baidu.com/img/PCfb_5bf082d29588c07f842ccde3f97243ea.png',
+        isActive:true,
+        books: [
+        {id: 110, name: 'Unix编程艺术', price: 119},
+        {id: 111, name: '代码大全', price: 105},
+        {id: 112, name: '深入理解计算机原理', price: 98},
+        {id: 113, name: '现代操作系统', price: 87},
+      ]
+      }
+    },
+    methods:{
+      add(){
+        this.counter++
+      },
+      subtract(){
+        this.counter--
+      },
+      isActiveFn(){
+        // return this.isActive = true
+      },
+    },
+    computed:{
+      isActives(){
+        return this.isActive = true
+      },
+      priceTotal(){
+        let pirce = 0;
+        this.books.forEach(item => {
+          pirce+=item.price
+        });
+        return pirce
+      }
+    }
+  })
+
+
+</script>
+

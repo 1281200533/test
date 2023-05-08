@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <div id ="app"> 
+
+    <!-- <input type="text" v-model="message"> -->
+   
+
+    <!-- <input type="radio" value="男"  id="" v-model="gender"> 男
+    <input type="radio" value="女" id="" v-model="gender"> 女
+    -->
+
+    <!-- 单选复选框 -->
+    <!-- <label for="sex">
+      <input type="checkbox" value="男"  v-model="isShow">男
+    </label> -->
+
+    <!-- 多选复选框 -->
+    <!-- <label :for="item" v-for="item in checkboxval">
+      <input type="checkbox" v-model="checkboxList" :value="item"  :id="item">{{item}}
+    </label> -->
+
+
+    <!-- select -->
+   
+    <select name=""  v-model="val" id=""  multiple>
+      <option v-for="item in checkboxval" :value="item">{{item}}</option>
+    </select>
+
+    <h3>{{val}}</h3>
+
+  </div>  
+
+  <script>
+   //创建Vue实例,得到 ViewModel
+   var vm = new Vue({
+    el: '#app',
+    data: {
+      message:'123',
+      gender:'男',
+      isShow:true,
+      checkboxval:['篮球','乒乓球','羽毛球','溜溜球','气球'],
+      checkboxList:[],
+      val:[]
+    },
+    methods: {}
+   });
+  </script>
+</body>
+
+</html>
